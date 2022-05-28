@@ -3,3 +3,10 @@ A Python 3 script for aligning, rotating and translating atomic coordinates in x
 
 ## External modules
 `pandas`, `numpy`
+
+## Quick start
+ Start the script with:
+```console
+python3 xyzalign.py filename.xyz
+```
+to open the XYZ. It will calculate the centroid or geometric center of all atoms and make this the origin at x=0, y=0 and z=0. All other coordinates will be recalculated with respect to the new origin. The file will be saved as `filenname-mod.xyz`.
