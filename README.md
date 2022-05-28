@@ -19,4 +19,4 @@ Open `filename.xyz`, set the origin (x=y=z=0 or 0,0,0) to atom 1 or the first at
 ```console
 python3 xyzalign.py ferrocene.xyz -o 1 -z 2 3 4 5 6
 ```
-Open `ferrocene.xyz`, set the origin (x=y=z=0 or 0,0,0) to atom 1 (`-o 1`), which is Fe and align the centroid of the atoms 2, 3, 4, 5, 6 (carbon atoms of one cyclopentadienyl  ring) to z. Save the modified xyz file as `ferrocene-mod.xyz`.
+Open `ferrocene.xyz`, set the origin (x=y=z=0 or 0,0,0) to atom 1 (`-o 1`), which is Fe and align the centroid of the atoms 2, 3, 4, 5, 6 (carbon atoms of one cyclopentadienyl  ring) to the z axis (0,0,1). Save the modified xyz file as `ferrocene-mod.xyz`.
