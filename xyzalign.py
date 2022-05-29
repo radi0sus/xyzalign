@@ -347,7 +347,7 @@ if args.rotate:
 #e.g. -m -1 0 0 0 -1 0 0 0 -1 - invert coordinates
 if args.matrix:
 	rot_matrix=np.asarray(args.matrix).reshape([3,3])
-	aligned_xyz_df[['x','y','z']]=np.dot(aligned_xyz_df[['x','y','z']],rot_matrix.T)
+	aligned_xyz_df[['x','y','z']]=np.dot(aligned_xyz_df[['x','y','z']],rot_matrix)
 
 #translate coordinates
 #input is x y z, input is in Å or in units of the input coordinates
