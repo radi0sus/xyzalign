@@ -52,8 +52,8 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 python3 xyzalign.py test.xyz
 ```
 
-        7						7
-        test					test
+        7				7
+        test			test
         Ni  1  1  1				Ni  0  0  0
         Cl  3  1  1				Cl  2  0  0
         Br  1  3  1		===>		Br  0  2  0
