@@ -32,7 +32,8 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 -  `-x` `atom(s)`, optional: define the atom or atoms that should be aligned with the x-axis (1,0,0), e.g. `-x 1` or `-x 1 2 3`. If more than one atom is given, the centroid of these atoms is aligned to the x-axis.
 -  `-y` `atom(s)`, optional: define the atom or atoms that should be aligned with the y-axis (0,1,0), e.g. `-y 1` or `-y 1 2 3`. If more than one atom is given, the centroid of these atoms is aligned to the y-axis.
 -  `-z` `atom(s)`, optional: define the atom or atoms that should be aligned with the z-axis (0,0,1), e.g. `-z 1` or `-z 1 2 3`. If more than one atom is given, the centroid of these atoms is aligned to the z-axis.
--  `-r` `angle-x` `angle-y` `angle-z`, optional: counterclockwise rotate the coordinates around the x-, y- and z-axes, e.g. `-r 45.1 0 90` or `-r 0 0 90`. Angles are in degrees.
+-  `-r` `angle-x angle-y angle-z`, optional: counterclockwise rotate the coordinates around the x-, y- and z-axes, e.g. `-r 45.1 0 90` or `-r 0 0 90`. Angles are in degrees.
+-  `-t` `x y z`, optional: translate coordinates in x,y and z, e.g. `-t 2 1 0` (translate coordinates by 2 Å or units of the coordinates in x, 1 Å in y and 0 Å in z)
 -  `-m` `x1 y1 z1 x2 y2 z2 x3 y3 z3`, optional: rotation / transformation matrix, e.g. `-m -1 0 0 0 -1 0 0 0 -1` for inversion of the coordinates.
 -  `-s`, optional: print the content of the altered xyz file to the console, do not save the file.
 -  `-v`, optional: verbose mode. Print more information, like the origin of the input xyz file or rotation matrices.
