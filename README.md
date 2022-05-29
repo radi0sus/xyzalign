@@ -53,13 +53,13 @@ python3 xyzalign.py test.xyz
 ```
 
 ```
-7						            7
-test					          test
-Ni  1  1  1				    Ni  0  0  0
-Cl  3  1  1				    Cl  2  0  0
-Br  1  3  1		===>		Br  0  2  0
-I   1  1  3				    I   0  0  2	
-He -1  1  1				    He -2  0  0	
-Ne  1 -1  1				    Ne  0 -2  0
-Ar  1  1 -1				    Ar  0  0 -2
+7						             7
+test					           test
+Ni  1  1  1				     Ni  0  0  0
+Cl  3  1  1				     Cl  2  0  0
+Br  1  3  1		===>		 Br  0  2  0
+I   1  1  3				     I   0  0  2	
+He -1  1  1				     He -2  0  0	
+Ne  1 -1  1				     Ne  0 -2  0
+Ar  1  1 -1				     Ar  0  0 -2
 ```
