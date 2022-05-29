@@ -33,13 +33,16 @@ def align_xyz(vec1,vec2,coord):
 
 #get rotation matrix from angles
 def rotmat_from_ang(theta, R = np.zeros((3,3))):
-		theta = np.array(theta)*np.pi/180.
-		cx, cy, cz = np.cos(theta)
-		sx, sy, sz = np.sin(theta)
-		R.flat = (cx*cz, -cy*sz+sy*sx*cz,  sy*sz+cy*sx*cy, 
-				  cx*sz,  cy*cz+sy*sx*sz, -sy*cz+cy*sx*sy, 
-				  -sx  ,  sy*cx         ,  cy*cx         )
-		return R
+	theta = np.array(theta)*np.pi/180.
+	cx, cy, cz = np.cos(theta)
+	sx, sy, sz = np.sin(theta)
+#	R.flat = (cx*cz, -cy*sz+sy*sx*cz,  sy*sz+cy*sx*cy, 
+#		cx*sz,  cy*cz+sy*sx*sz,  -sy*cz+cy*sx*sy, 
+#		-sx  ,  sy*cx         ,  cy*cx         )
+	R.flat = (cy*cz, -cx*sz+sx*sy*cz,  sx*sz+cx*sy*cx, 
+			  cy*sz,  cx*cz+sx*sy*sz,  -sx*cz+cx*sy*sx, 
+			 -sy   ,  sx*cy         ,  cx*cy          )
+	return R
 
 parser = argparse.ArgumentParser(
 	prog='xyzalign.py', 
@@ -326,7 +329,7 @@ if args.x:
 				print('rotation matrix x 2nd: ', *rotmat_from_vec((atoms_x['x'],atoms_x['y'],atoms_x['z']), (1,0,0)))
 				print('')
 
-#rotate anti-clockwise about the x-, y- and z-axes
+#rotate counterclockwise about the x-, y- and z-axes
 #input is x y z, input is in degrees
 #e.g. -r 0 90 0 - rotate 90° about the y-axis
 #e.g. -r 45.11 90 0 - rotate 45° about the x-axis and 90° about the y-axis
@@ -337,7 +340,7 @@ if args.rotate:
 	#print detailed information
 	if args.verbose:
 		with np.printoptions(precision=4, suppress=True, linewidth=100): 
-			print('rotation matrix angles:\n ', *rotmatrix)
+			print('rotation matrix angles:\n ', *rotmatrix.T)
 			
 #process the rotation/transformation matrix on coordinates
 #input is x1 y1 z1, x2 y2 z2, x3 y3 z3
@@ -355,6 +358,7 @@ if args.translate:
 if args.verbose:
 	print('transformed coordinates:')
 	print(aligned_xyz_df)
+	print('')
 
 #print xyz-file to stdout, do not save the file
 if args.stdout:
