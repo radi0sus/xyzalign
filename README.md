@@ -24,7 +24,7 @@ Open `ferrocene.xyz`, set the origin (x=y=z=0 or 0,0,0) to atom 1 (`-o 1`), whic
 ```console
 python3 xyzalign.py fe2s2.xyz -o 1 2 3 4 -r 0 0 90 -s
 ```
-Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first 4 atoms (`-o 1 2 3 4`). Counter-clockwise rotate the molecule around the z-axis by 90° (`-r 0 0 90`). Do not save the xyz file, print the content of the xyz file to the console (`-s`).
+Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first 4 atoms (`-o 1 2 3 4`). Counterclockwise rotate the molecule around the z-axis by 90° (`-r 0 0 90`). Do not save the xyz file, print the content of the xyz file to the console (`-s`).
 
 ## Command-line options
 - `filename` , required: filename, e.g. `my_xyz.xyz`, first two lines will be ignored, file format must be `element x y z`, cartesian coordinates, (units in Å)
