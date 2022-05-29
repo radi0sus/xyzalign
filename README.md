@@ -28,5 +28,5 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 
 ## Command-line options
 - `filename` , required: filename, e.g. `my_xyz.xyz`, first two lines will be ignored, file format must be `element x y z`, cartesian coordinates, (units in Å)
-- `-o` `atom(s)`, optional:  define the origin or centroid the molecule by one or more atoms, if no atom is defined, the centroid of all atoms in the xy file will be calculated, e.g. `-o 1` or `-o 1 2 3`
+- `-o` `atom(s)`, optional:  define the origin of the molecule by one or more atoms. If no atom is defined (i.e. the `-o` option is not given), the centroid of all atoms in the xy file will be calculated. The origin will have the coordinates x=0, y=0 and z=0. All other coordinates will be recalculated with respect to the new origin, e.g. `-o 1` or `-o 1 2 3`
 
