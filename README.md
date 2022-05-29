@@ -51,6 +51,7 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 ```console
 python3 xyzalign.py test.xyz
 ```
+        test.xyz.    test-mod.xyz
 
         7				        7
         test			        test
