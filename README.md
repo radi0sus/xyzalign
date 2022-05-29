@@ -32,4 +32,5 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 -  `-x` `atom(s)`, optional: define the atom or atoms that should be aligned with the x-axis (1,0,0), e.g. `-x 1` or `-x 1 2 3`. If more than one atom is given, the centroid of these atoms is aligned to the x-axis.
 -  `-y` `atom(s)`, optional: define the atom or atoms that should be aligned with the y-axis (0,1,0), e.g. `-y 1` or `-y 1 2 3`. If more than one atom is given, the centroid of these atoms is aligned to the y-axis.
 -  `-z` `atom(s)`, optional: define the atom or atoms that should be aligned with the z-axis (0,0,1), e.g. `-z 1` or `-z 1 2 3`. If more than one atom is given, the centroid of these atoms is aligned to the z-axis.
+-  `-r` `angle-x` `angle-y` `angle-z, optional: counterclockwise rotate the coordinates around the x-, y- and z-axes, e.g. `-r 45.1 0 90` or `-r 0 0 90`. Angles are in degrees.
 
