@@ -59,9 +59,9 @@ parser.add_argument('-o', '--origin',
 	nargs='+',
 	default=12345,
 	type=int,
-	help='define the origin or centroid the molecule by one or more atoms,\
+	help='define the origin (at 0,0,0) by one or more atoms,\
 		if no atom is defined, the centroid of all atoms will be calculated, \
-		e.g. -o 0 or -o 1 2 3')
+		e.g. -o 1 or -o 1 2 3')
 
 #atom in x direction
 parser.add_argument('-x','--x',
