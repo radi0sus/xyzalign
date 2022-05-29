@@ -37,3 +37,10 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 -  `-m` `x1 y1 z1 x2 y2 z2 x3 y3 z3`, optional: rotation / transformation matrix, e.g. `-m -1 0 0 0 -1 0 0 0 -1` for inversion of the coordinates.
 -  `-s`, optional: print the content of the altered xyz file to the console, do not save the file.
 -  `-v`, optional: verbose mode. Print more information, like the origin of the input xyz file or rotation matrices.
+
+## Remarks
+- Only the standard XYZ file format is supported. 
+- If the script is opened with no options, the molecule will be centered and the modified coordinates will be saved as `-mod.xyz`.
+- If saving is not necessary or not possible, the `-s` option should be used.
+- A perfect alignment of atoms of 'real world' molecules to the three axes of a cartesian coordinate system is probably impossible. The script tries to align the atoms as close as possible to the axes.
+- To makes calculations easier, the origin is always at 0,0,0. To transfer the coordinates back to the starting origin, use the `-v` option, note the original origin and translate the coordinates back with the `-t` option.
