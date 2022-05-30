@@ -20,7 +20,7 @@ def rotmat_from_vec(vec1, vec2):
 	c = np.dot(a, b)
 	#to avoid division by zero
 	if c == -1:
-		c = 1
+		c = -0.9999999999999999
 	k = 1.0 / (1.0 + c)
 	return np.array([[v[0] * v[0] * k + c, v[1] * v[0] * k - v[2], v[2] * v[0] * k + v[1]],
 	[v[0] * v[1] * k + v[2], v[1] * v[1] * k + c, v[2] * v[1] * k - v[0]],
@@ -231,7 +231,7 @@ if args.y:
 			print('selected atom(s) for y direction:')
 			print(y_atoms_df)
 			print('')
-			print('rotation matrix y: ', *rotmat_from_vec((atoms_y['x'],atoms_y['y'],atoms_y['z']), (1,0,0)))
+			print('rotation matrix y: ', *rotmat_from_vec((atoms_y['x'],atoms_y['y'],atoms_y['z']), (0,1,0)))
 			print('')
 
 #align atom or centroid of atoms to the z-axis (0 0 1)
