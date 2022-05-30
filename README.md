@@ -45,4 +45,4 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 - A perfect alignment of atoms of 'real world' molecules to the three axes of a cartesian coordinate system is probably impossible. The script tries to align the atoms as close as possible to the axes.
 - To makes calculations easier, the origin is always at 0,0,0. To transfer the coordinates back to the starting origin, use the `-v` option, note the original origin and translate the coordinates back with the `-t` option.
 - If counting of atoms should start at zero, comment the line `xyz_df.index +=1` in the script.
-- The selected atoms are preferably placed along the positive xyz-axes. However, this is not always possible. Depending on the molecule geometry, the atoms are then sometimes also located on negative axes. 
+- The selected atoms are preferably placed along the positive xyz-axes. However, this is not always possible. Depending on the molecular geometry, the atoms are then sometimes also located on negative axes. 
