@@ -205,7 +205,7 @@ if args.x:
 			print('selected atom(s) for x direction:')
 			print(x_atoms_df)
 			print('')
-			print('rotation matrix x: ', *rotmat_from_vec((atoms_x['x'],atoms_x['y'],atoms_x['z']), (1,0,0)))
+			print('rotation matrix x: ', *rotmat_from_vec((atoms_x['x'],atoms_x['y'],atoms_x['z']), (1,0,0)).T)
 			print('')
 			
 #align atom or centroid of atoms to the y-axis (0 1 0)
@@ -231,7 +231,7 @@ if args.y:
 			print('selected atom(s) for y direction:')
 			print(y_atoms_df)
 			print('')
-			print('rotation matrix y: ', *rotmat_from_vec((atoms_y['x'],atoms_y['y'],atoms_y['z']), (0,1,0)))
+			print('rotation matrix y: ', *rotmat_from_vec((atoms_y['x'],atoms_y['y'],atoms_y['z']), (0,1,0)).T)
 			print('')
 
 #align atom or centroid of atoms to the z-axis (0 0 1)
@@ -257,7 +257,7 @@ if args.z:
 			print('selected atom(s) for z direction:')
 			print(z_atoms_df)
 			print('')
-			print('rotation matrix z: ', *rotmat_from_vec((atoms_z['x'],atoms_z['y'],atoms_z['z']), (1,0,0)))
+			print('rotation matrix z: ', *rotmat_from_vec((atoms_z['x'],atoms_z['y'],atoms_z['z']), (0,0,1)).T)
 			print('')
 
 #align atom or centroid of atoms to the xyz-axes (1 1 1)
@@ -279,7 +279,7 @@ if args.x and args.y and args.z:
 	#print detailed information
 	if args.verbose:
 		with np.printoptions(precision=4, suppress=True, linewidth=100): 
-			print('rotation matrix xyz: ', *rotmat_from_vec((atoms_xyz['x'],atoms_xyz['y'],atoms_xyz['z']), (1,1,1)))
+			print('rotation matrix xyz: ', *rotmat_from_vec((atoms_xyz['x'],atoms_xyz['y'],atoms_xyz['z']), (1,1,1)).T)
 			print('')
 			
 #align atom or centroid of atoms to the xy-axes (1 1 0)
@@ -300,7 +300,7 @@ if args.x and args.y:
 	#print detailed information
 	if args.verbose:
 		with np.printoptions(precision=4, suppress=True, linewidth=100): 
-			print('rotation matrix xy: ', *rotmat_from_vec((atoms_xy['x'],atoms_xy['y'],atoms_xy['z']), (1,1,0)))
+			print('rotation matrix xy: ', *rotmat_from_vec((atoms_xy['x'],atoms_xy['y'],atoms_xy['z']), (1,1,0)).T)
 			print('')
 
 #re-align atom or centroid of atoms to the y-axis (0 1 0)
@@ -313,7 +313,7 @@ if args.y:
 	#print detailed information
 	if args.verbose:
 		with np.printoptions(precision=4, suppress=True, linewidth=100): 
-			print('rotation matrix y 2nd: ', *rotmat_from_vec((atoms_y['x'],atoms_y['y'],atoms_y['z']), (1,0,0)))
+			print('rotation matrix y 2nd: ', *rotmat_from_vec((atoms_y['x'],atoms_y['y'],atoms_y['z']), (0,1,0)))
 			print('')
 
 #re-align atom or centroid of atoms to the x-axis (1 0 0)
@@ -326,7 +326,7 @@ if args.x:
 		#print detailed information
 		if args.verbose:
 			with np.printoptions(precision=4, suppress=True, linewidth=100): 
-				print('rotation matrix x 2nd: ', *rotmat_from_vec((atoms_x['x'],atoms_x['y'],atoms_x['z']), (1,0,0)))
+				print('rotation matrix x 2nd: ', *rotmat_from_vec((atoms_x['x'],atoms_x['y'],atoms_x['z']), (1,0,0)).T)
 				print('')
 
 #rotate counterclockwise about the x-, y- and z-axes
