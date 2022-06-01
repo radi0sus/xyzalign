@@ -48,6 +48,7 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 - If counting of atoms should start at zero, comment the line `xyz_df.index +=1` in the script.
 
 ## Examples
+All images were created with [xyz2tab](https://github.com/radi0sus/xyz2tab).
 ### Example 1:
 Not aligned molecule:
 <p align="center">
