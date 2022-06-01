@@ -88,3 +88,18 @@ python3 xyzalign.py filename.xyz -o 1 -x 2 -y 3 -r 0 0 45 -t 0 0 1.6
 <p align="center">
 <img width="400" alt="nipor4" src="/examples/nipor5.png">
 </p>
+
+### Example 2:
+Not aligned molecule:
+<p align="center">
+<img width="400" alt="nipor1" src="/examples/fer1.png">
+</p>
+Set origin to atom 1 (metal atom in the center, red) and align the centroid of atoms 2, 3, 4, 5, and 6 (carbon atoms, black) to the z-axis:
+
+```console
+python3 xyzalign.py filename.xyz -o 1 -z 2 3 4 5 6
+```
+
+<p align="center">
+<img width="400" alt="nipor4" src="/examples/fer2.png">
+</p>
