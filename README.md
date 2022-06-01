@@ -81,6 +81,10 @@ python3 xyzalign.py filename.xyz -o 1 -x 2 -y 3 -r 0 0 45
 </p>
 ...translate 1.6 Å in z.:
 
+```console
+python3 xyzalign.py filename.xyz -o 1 -x 2 -y 3 -r 0 0 45 -t 0 0 1.6
+```
+
 <p align="center">
 <img width="400" alt="nipor4" src="/examples/nipor5.png">
 </p>
