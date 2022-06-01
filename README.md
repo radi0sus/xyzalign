@@ -48,6 +48,6 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 - If counting of atoms should start at zero, comment the line `xyz_df.index +=1` in the script.
 
 ## Examples
-# Example 1:
+### Example 1:
 
 
