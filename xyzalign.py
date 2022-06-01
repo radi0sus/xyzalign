@@ -33,15 +33,22 @@ def align_xyz(vec1,vec2,coord):
 
 #get rotation matrix from angles
 def rotmat_from_ang(theta, R = np.zeros((3,3))):
-	theta = np.array(theta)*np.pi/180.
+	theta = np.array(theta)*np.pi/180
 	cx, cy, cz = np.cos(theta)
 	sx, sy, sz = np.sin(theta)
-#	R.flat = (cx*cz, -cy*sz+sy*sx*cz,  sy*sz+cy*sx*cy, 
-#		cx*sz,  cy*cz+sy*sx*sz,  -sy*cz+cy*sx*sy, 
-#		-sx  ,  sy*cx         ,  cy*cx         )
-	R.flat = (cy*cz, -cx*sz+sx*sy*cz,  sx*sz+cx*sy*cx, 
-			  cy*sz,  cx*cz+sx*sy*sz,  -sx*cz+cx*sy*sx, 
-			 -sy   ,  sx*cy         ,  cx*cy          )
+	Rx = np.array([1, 0 , 0, 0, cx, -sx, 0, sx, cx]).reshape(3,3)
+	Ry = np.array([cy, 0 , sy, 0, 1, 0, -sy, 0, cy]).reshape(3,3)
+	Rz = np.array([cz, -sz , 0, sz, cz, 0, 0, 0, 1]).reshape(3,3)
+	R.flat = Rx.dot(Ry).dot(Rz)
+	#R.flat = (cx*cz, -cy*sz+sy*sx*cz,  sy*sz+cy*sx*cy, 
+	#		   cx*sz,  cy*cz+sy*sx*sz,  -sy*cz+cy*sx*sy, 
+	#		  -sx   ,  sy*cx         ,  cy*cx         )
+	#R.flat = (cy*cz, -cx*sz+sx*sy*cz,  sx*sz+cx*sy*cx, 
+	#		  cy*sz,  cx*cz+sx*sy*sz,  -sx*cz+cx*sy*sx, 
+	#		 -sy   ,  sx*cy         ,   cx*cy          )
+	#R.flat = (cy*cz,  sx*sy*cz-cx*sz,  cx*sy*cx+sx*sz, 
+	#		  cy*sz,  sx*sy*sz+cx*cz,  cx*sy*sx-sx*cz, 
+	#		 -sy   ,  sx*cy         ,  cx*cy          )
 	return R
 
 parser = argparse.ArgumentParser(
