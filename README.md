@@ -50,4 +50,6 @@ Open `fe2s2.xyz`, set the origin (x=y=z=0 or 0,0,0) to the centroid of the first
 ## Examples
 ### Example 1:
 
-![show](/examples/nipor1.png)
+<p align="center">
+<img width="100" alt="nipor1" src="/examples/nipor1.png">
+</p>
