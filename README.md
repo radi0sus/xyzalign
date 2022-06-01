@@ -53,7 +53,7 @@ Not aligned molecule:
 <p align="center">
 <img width="400" alt="nipor1" src="/examples/nipor1.png">
 </p>
-Origin set to atom 1 (metal in the center):
+Origin set to atom 1 (metal atom in the center, red):
 
 ```console
 python3 xyzalign.py filename.xyz -o 1 
