@@ -53,7 +53,7 @@ Not aligned molecule:
 <p align="center">
 <img width="400" alt="nipor1" src="/examples/nipor1.png">
 </p>
-Origin set to atom 1 (metal atom in the center, red)...:
+Origin set to atom 1 (metal atom in the center, red),...:
 
 ```console
 python3 xyzalign.py filename.xyz -o 1 
@@ -61,7 +61,7 @@ python3 xyzalign.py filename.xyz -o 1
 <p align="center">
 <img width="400" alt="nipor2" src="/examples/nipor2.png">
 </p>
-...atoms 2 and 3 (nitrogen atoms, blue) aligned with the x- and y-axes...:
+...atoms 2 and 3 (nitrogen atoms, blue) aligned with the x- and y-axes,...:
 
 ```console
 python3 xyzalign.py filename.xyz -o 1 -x 2 -y 3
@@ -70,7 +70,7 @@ python3 xyzalign.py filename.xyz -o 1 -x 2 -y 3
 <p align="center">
 <img width="400" alt="nipor3" src="/examples/nipor3.png">
 </p>
-...rotate 45° counterclockwise around the z-axis.:
+...45° counterclockwise rotation around the z-axis.:
 
 ```console
 python3 xyzalign.py filename.xyz -o 1 -x 2 -y 3 -r 0 0 45
