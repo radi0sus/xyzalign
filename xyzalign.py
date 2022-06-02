@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #xyzalign
 
-#import sys                                                     #stdout
+import sys                                                     #stdout
 import argparse                                                 #argument parser
 import pandas as pd                                             #pandas data frames
 import numpy as np                                              #calculations
@@ -13,18 +13,42 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.float_format', lambda x: '%.4f' % x)
 
 #rotation matrix from two vectors
-def rotmat_from_vec(vec1, vec2):
+#tried many, this seems to work
+def rotmat_from_vec(vec1,vec2):
 	#normalize
-	a, b = (vec1 / np.linalg.norm(vec1)).reshape(3), (vec2 / np.linalg.norm(vec2)).reshape(3)
-	v = np.cross(a, b)
-	c = np.dot(a, b)
-	#to avoid division by zero
-	if c == -1:
-		c = -0.9999999999999999
-	k = 1.0 / (1.0 + c)
-	return np.array([[v[0] * v[0] * k + c, v[1] * v[0] * k - v[2], v[2] * v[0] * k + v[1]],
-	[v[0] * v[1] * k + v[2], v[1] * v[1] * k + c, v[2] * v[1] * k - v[0]],
-	[v[0] * v[2] * k - v[1], v[1] * v[2] * k + v[0], v[2] * v[2] * k + c]])
+	vec1=np.array(vec1)
+	vec2=np.array(vec2)
+	#this workaround seems to work good for atoms already aligned on axes
+	#replaces 0 with 1e-12 in vec1
+	vec1[vec1 == 0] = 1e-12
+	#####
+	a = (vec1 / np.linalg.norm(vec1)).reshape(3)
+	b = (vec2 / np.linalg.norm(vec2)).reshape(3)
+	C = np.cross(a, b) 
+	D = np.dot(a, b)
+	NP0 = np.linalg.norm(a)
+	if not C.any() == 0 :   
+		Z = np.array([[0, -C[2], C[1]], [C[2], 0, -C[0]], [-C[1], C[0], 0]])
+		F = (1-D)/(np.linalg.norm(C)**2) 
+		ZZ = np.array(np.linalg.matrix_power(Z,2))*F
+		R = np.array(np.eye(3) + Z + ZZ) / NP0**2
+	else:
+		R = np.eye(3)*(np.sign(D) * (np.linalg.norm(b) / NP0))
+	return R
+
+#rotation matrix from two vectors
+#def rotmat_from_vec(vec1, vec2):
+#	#normalize
+#	a, b = (vec1 / np.linalg.norm(vec1)).reshape(3), (vec2 / np.linalg.norm(vec2)).reshape(3)
+#	v = np.cross(a, b)
+#	c = np.dot(a, b)
+#	#to avoid division by zero
+#	if c == -1:
+#		c = -0.9999999999999999
+#	k = 1.0 / (1.0 + c)
+#	return np.array([[v[0] * v[0] * k + c, v[1] * v[0] * k - v[2], v[2] * v[0] * k + v[1]],
+#	[v[0] * v[1] * k + v[2], v[1] * v[1] * k + c, v[2] * v[1] * k - v[0]],
+#	[v[0] * v[2] * k - v[1], v[1] * v[2] * k + v[0], v[2] * v[2] * k + c]])
 
 #apply rotation matrix to coordinates
 def align_xyz(vec1,vec2,coord):
@@ -212,6 +236,8 @@ if args.x:
 			print('selected atom(s) for x direction:')
 			print(x_atoms_df)
 			print('')
+			print('centroid in x direction: {:.4f} {:.4f} {:.4f}'.format(*atoms_x))
+			print('')
 			print('rotation matrix x: ', *rotmat_from_vec((atoms_x['x'],atoms_x['y'],atoms_x['z']), (1,0,0)).T)
 			print('')
 			
@@ -238,6 +264,8 @@ if args.y:
 			print('selected atom(s) for y direction:')
 			print(y_atoms_df)
 			print('')
+			print('centroid in y direction: {:.4f} {:.4f} {:.4f}'.format(*atoms_y))
+			print('')
 			print('rotation matrix y: ', *rotmat_from_vec((atoms_y['x'],atoms_y['y'],atoms_y['z']), (0,1,0)).T)
 			print('')
 
@@ -263,6 +291,8 @@ if args.z:
 		with np.printoptions(precision=4, suppress=True, linewidth=100): 
 			print('selected atom(s) for z direction:')
 			print(z_atoms_df)
+			print('')
+			print('centroid in z direction: {:.4f} {:.4f} {:.4f}'.format(*atoms_z))
 			print('')
 			print('rotation matrix z: ', *rotmat_from_vec((atoms_z['x'],atoms_z['y'],atoms_z['z']), (0,0,1)).T)
 			print('')
@@ -378,8 +408,10 @@ if args.stdout:
 if not args.stdout:
 	try:
 		my_numpy = aligned_xyz_df.to_numpy()
-		np.savetxt(os.path.splitext(args.filename)[0] +'-mod.xyz', my_numpy,fmt='%-2s  %12.8f  %12.8f  %12.8f', delimiter='', header=head, comments='')
-	#write errot -> exit here
+		np.savetxt(os.path.splitext(args.filename)[0] +'-mod.xyz', my_numpy,
+				   fmt='%-2s  %12.8f  %12.8f  %12.8f', delimiter='', 
+				   header=head, comments='')
+	#write error -> exit here
 	except IOError:
 		print("Write error. Exit.")
 		sys.exit(1)
