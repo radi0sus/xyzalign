@@ -91,6 +91,8 @@ python3 xyzalign.py filename.xyz -o 1 -x 2 -y 3 -r 0 0 45 -t 0 0 1.6
 <img width="400" alt="nipor4" src="/examples/nipor5.png">
 </p>
 
+![show](/examples/show-use1.gif)
+
 ### Example 2:
 Not aligned molecule:
 <p align="center">
